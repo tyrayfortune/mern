@@ -74,7 +74,7 @@ const Todo = (props) => {
           }
           return (
           <div key={(i)}>
-            {/* checkbocx logic below */}
+            {/* checkboX logic below */}
             <input  type="checkbox" onChange={(event)=>{
               handleToggleComplete(i)
             }} checked={todo.complete} style={{marginRight: "10px"}} />

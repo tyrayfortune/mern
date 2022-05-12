@@ -44,6 +44,7 @@ function orderedIntersection(sortedA, sortedB) {
     var set = new Set(combinedarray)
     const newarray = Array.from(set)
     return newarray
+
 }    
 console.log(orderedIntersection(numsA1, numsB1))
 console.log(orderedIntersection(numsA2, numsB2))
