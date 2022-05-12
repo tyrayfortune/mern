@@ -13,7 +13,7 @@ const PokemonList = (props) => {
             .catch(errorResponse => console.log("ERROR: ", errorResponse)) // unsuccessful response
     }
 
-  return (
+return (
     <div>
             <button onClick={eventHandler}>Fetch Pokemon</button>
             {/* TERNARY OPERATOR with mapping */}
