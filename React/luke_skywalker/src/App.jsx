@@ -11,8 +11,9 @@ function App() {
     <div className="App">
       <StarWarsForm/>  
       <Routes>
-        <Route path="/people/:id" element={<People/>} ></Route>
-        <Route path="/planets/:id" element={<Planets/>} ></Route>
+        <Route path="/people/:id" element={<People/>} />
+        {/* can have self closing tags unless you have  a hild element, i.e for planets route if you added a city route */}
+        <Route path="/planets/:id" element={<Planets/>} > </Route>
       </Routes>
     </div>
    </BrowserRouter>
