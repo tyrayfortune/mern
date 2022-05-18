@@ -37,14 +37,8 @@ module.exports.deleteJoke = (req, res) => {
 //give you a random joke 
 
 module.exports.randomJoke = (req, res) => {
-  Joke.find()
-  let jokeFinder = Joke.find()
-    for (let index = 0; index < jokeFinder.length; index++) {
-      const element = array[index];
-      
-    }
-    return jokeFinder
-
-    .then(jokes => res.json({ jokes }))
-    .catch(err => res.json({ message: "you dun messed up A-A-RON!!", err }));
+  console.log("string")
+  Joke.aggregate([{$sample: {size: 1}}])
+    .then(jokes => res.json( jokes ))
+    .catch(err => res.json({ message: "randomstatement", err }));
 };
