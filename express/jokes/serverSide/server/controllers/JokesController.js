@@ -9,7 +9,7 @@ module.exports.findAllJokes = (req, res) => {
 module.exports.findOneJoke = (req, res) => {
   //whatever you put in route after colon is what you would put, in this case we put id (check routes for route name)
 	Joke.findOne({ _id: req.params.id })
-		.then(oneJoke=> res.json({ oneJoke }))
+		.then(oneJoke=> res.json( oneJoke ))
 		.catch(err => res.json({ message: "Something went wrong", error: err }));
 };
 

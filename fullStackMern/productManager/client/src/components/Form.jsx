@@ -37,6 +37,7 @@ const Form = (props) => {
         <form onSubmit={createHandler}>
         <p>
             Title:
+            {/* valuie is to switch it back to blank after submsission */}
         <input type="text" name="title" onChange={(e) => setTitle(e.target.value)} value={title} />
         </p>
         <p>

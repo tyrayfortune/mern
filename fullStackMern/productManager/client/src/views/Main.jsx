@@ -5,6 +5,7 @@ import Form from '../components/Form'
 const Main = () => {
     //STATE FOR KEEPING TRACK OF REFRESH
     const [refreshState, setRefresh] = useState(false)
+    
    //FUNCTION FOR KEEPING TRACK OF REFRESH
     const refresh = () => {
         setRefresh(!refreshState)
