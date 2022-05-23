@@ -54,6 +54,7 @@ const NewForm = (props) => {
             <Link to="/"> <button>Cancel</button></Link>
             
         </form>
+        
             {/* ERROR MAPPING */}
         {
                 err.map((errorMessage, index) => {

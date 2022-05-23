@@ -21,8 +21,8 @@ const handleSubmit = (e) => {
             <select onChange={(e) => setOption(e.target.value)} name="options">
               <option  value="people">People</option>
               <option  value="planets">Planets</option>
-            </select>
-          <h3>ID:</h3> <input onChange={(e) => setID(e.target.value)}  type="number" name='ID'/>
+            </select>          <h3>ID:</h3> <input onChange={(e) => setID(e.target.value)}  type="number" name='ID'/>
+
         <button >Search</button>
     </form>
 
