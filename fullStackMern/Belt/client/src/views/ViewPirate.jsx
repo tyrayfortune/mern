@@ -38,7 +38,7 @@ const ViewPirate = (props) => {
         <h5>Eye Patch:{pirate.eyePatch}</h5>
         <h5>Hook Hand:{pirate.hookHand}</h5>
 
-      </div> : <h5>loading,..</h5>
+      </div> : <h5>loading..</h5>
       }
     </div>
   )

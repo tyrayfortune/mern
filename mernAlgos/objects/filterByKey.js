@@ -99,7 +99,7 @@ function filterByKey(items, searchFor, searchBy) {
     }
     return(items)
 }
-console.log(filterByKey(searchFor1))
+
 /**
  * Filters the given items based on the search criteria using a startsWith
  * search method.

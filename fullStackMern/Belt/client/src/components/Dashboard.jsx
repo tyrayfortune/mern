@@ -54,11 +54,7 @@ const Dashboard = (props) => {
                       <button onClick={(e) => deleteHandler(pirate._id)}>Walk the Plank</button>
                       </td>
                     </tr>
-
-
                     </tbody>
-
-
                   </table>
                   
                 )
