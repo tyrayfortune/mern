@@ -5,6 +5,9 @@ import React, {useState, useEffect} from 'react'
 
 
 const Payment = (props) => {
+          //DESTRUCT REFRESH FROM PROPS
+          const {refreshState, refresh} = props
+
         //STATE FOR holding one sandwich
         const [sandwich, setSandwich] = useState()
         const navigate = useNavigate()
@@ -17,14 +20,14 @@ const Payment = (props) => {
           //sets the product into state so you can display it in your return 
         .then(res => setSandwich(res.data))
         .catch(err => console.log(err))
-    }, [])
+    }, [refreshState])
 
     function lettuce(object){
-        for (const [key, value] of Object.entries(object)){
-                // console.log(`${key} hey ${value}`)
-                return [key, value]
-        }
-    }
+      Object.keys(object).map((key) => (
+        
+        console.log()
+        ))
+      }
 
   return (
     <div className='container'>   
@@ -41,19 +44,17 @@ const Payment = (props) => {
             </div> : <h4>loading.</h4>
         }
         {
-
-            
-                Object.keys(sandwich).map((key, i) => (
-                    
-                <div>
-                  <p key={i}>topping: {key}</p>
-                </div>
-                ))
+            //     Object.keys(sandwich).map((key, i) => (
+            //     (sandwich[key]) ? 
+            // <div>
+            //   <p key={i}>topping: {key}</p>
+            // </div> : null 
               
+            // )) 
+
         }
         
 
-        
         <form action="">
             <h4>Address</h4>
             

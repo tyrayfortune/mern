@@ -6,9 +6,9 @@ import React, {useState, useEffect} from 'react'
 
 const NewSandwich = () => {
 //getting state
-const [sandwichSize, setSandwichSize] = useState("Regular")
-const [method, setMethod] = useState("Delivery")
-const [breadType, setBreadType] = useState("White")
+const [sandwichSize, setSandwichSize] = useState("")
+const [method, setMethod] = useState("")
+const [breadType, setBreadType] = useState("")
 const [quantity, setQuantity] = useState(1)
 const [ham, setHam] = useState(false)
 const [turkey, setTurkey] = useState(false)
@@ -30,6 +30,7 @@ const [mayo, setMayo] = useState(false)
 const [groundPepper, setGroundPepper] = useState(false)
 const [chipotle, setChipotle] = useState(false)
 const [pesto, setPesto] = useState(false)
+const [allToppings, setAllToppings] = useState([])
 
     //dustructing navigate
     const navigate = useNavigate()
@@ -42,34 +43,43 @@ const [pesto, setPesto] = useState(false)
             sandwichSize,
             method,
             breadType,
-            quantity,
-            //sandwich meats
-            ham,
-            turkey,
-            roastBeef,
-            pastrami,
-            meatballs,
-            //Cheeses
-            americanSwiss,
-            pepperJack,
-            sharpChedder,
-            lowFatAmerican,
-            dairyFreeSwiss,
-            //TOPPINGS
-            lettuce,
-            tomatoe,
-            onion,
-            cucumber,
-            jalapeno,
-            //condiments
-            mustard,
-            mayo,
-            groundPepper,
-            chipotle,
-            pesto
+            quantity
+        }
+        //creating an obj with product info so we can pass it into DB (look at usestate to see what form its in prior)
+        const toppingArray = [
+        //sandwich meats
+        ham,
+        turkey,
+        roastBeef,
+        pastrami,
+        meatballs,
+        //Cheeses
+        americanSwiss,
+        pepperJack,
+        sharpChedder,
+        lowFatAmerican,
+        dairyFreeSwiss,
+        //TOPPINGS
+        lettuce,
+        tomatoe,
+        onion,
+        cucumber,
+        jalapeno,
+        //condiments
+        mustard,
+        mayo,
+        groundPepper,
+        chipotle,
+        pesto
+        ]
+        for (let index = 0; index < toppingArray.length; index++) {
+            if (toppingArray[index]  === true) {
+                allToppings.push()
+            }
+            // return allToppings
         }
         //make post request to express with obj to put in DB
-        axios.post("http://localhost:8000/api/sandwiches/", sandwichObj)
+        axios.post("http://localhost:8000/api/sandwiches/", sandwichObj, allToppings)
                                 //BRINGS THE ID IN
         .then(res => navigate('/payment/' +  res.data._id) )
         .catch(err => console.log(err))
@@ -102,7 +112,6 @@ const [pesto, setPesto] = useState(false)
                 <h5>Quantity</h5>
                 <input type="number" placeholder="1" />
             </div>
-
                 <div className="row">
                 <div className="col-sm">
                     <h4>Meats</h4>
@@ -178,8 +187,8 @@ const [pesto, setPesto] = useState(false)
                 </div>
                 </div>
             <button>Order Sub!</button>
-            <Link to="new/sandwich"><button>Add another?</button></Link>
         </form>
+            <Link to="new/sandwich"><button>Add another?</button></Link>
     </div>
   )
 }
