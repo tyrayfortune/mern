@@ -18,13 +18,14 @@ const Chatroom = (props) => {
 
         //taking previous chat and adding the newest message to the chat 
         socket.on('output_messages', data =>{
-            setChat(data)
+            console.log(data)
+            // setChat(data)
         })
 
-    // // LISTENING FOR ANY NEW MESSAGE
-    // socket.on("new_message", newMessage => {
-    //     setChat(prevChat => [newMessage, ...prevChat])
-    //   })
+    // LISTENING FOR ANY NEW MESSAGE
+    socket.on("new_message", newMessage => {
+        setChat(prevChat => [newMessage, ...prevChat])
+      })
 
             //for puttingthe name in state
         var promptName = prompt('whats is ya name?')

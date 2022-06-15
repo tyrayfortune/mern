@@ -28,7 +28,7 @@ app.listen(port , server, ()=>{
 
 // FOR SOCKET.IO, putting it in the Express
 const io = require('socket.io')(server, { cors: true });
-const chat_history = []
+// const chat_history = []
 //on is an event listner for any client connects to sockets, this is the callback function
 io.on("connection", (socket) =>{
     //send chat history to the new user
@@ -45,9 +45,7 @@ io.on("connection", (socket) =>{
             io.emit("message", createMessage)
 
         })
-        // //for chat history for new user
-        //         chat_message.push(createMessage)
-        // //send message out to rest of users
-        //         socket.broadcast.emit("new_message", createMessage)
+        //send message out to rest of users
+                socket.broadcast.emit("new_message", createMessage)
     })
 })
