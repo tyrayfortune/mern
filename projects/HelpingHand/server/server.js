@@ -1,51 +1,33 @@
-// 1. IMPORT DEPENDENCIES
-const express = require('express')
-const cors = require('cors')
-const cookieParser = require("cookie-parser")
-const app = express()
-const port = 8000
-const server =7000
-const Chat = require("./models/ChatModel")
-// 1.5 CONNECT TO MONGODB
-require("./config/MongooseConfig")
-
-
-// 2. CONFIGURE EXPRESS
-app.use(cookieParser())
-// for client and server to speak 
-app.use(cors({credentials:true, origin:"http://localhost:3000"}))
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-
-// 3. CONNECT ROUTES
-const chatRoutes = require("./routes/ChatRoute")
-chatRoutes(app)
-
-// 4. START EXPRESS SERVER
-app.listen(port , server, ()=>{
-    console.log(`EXPRESS LISTENING ON ${port}, ${server}`)
-})
-
-// FOR SOCKET.IO, putting it in the Express
+// server.js
+const express = require('express');
+const app = express();
+ 
+const server = app.listen(8000, () =>
+  console.log('The server is all fired up on port 8000')
+);
+ 
+// To initialize the socket, we need to
+// invoke the socket.io library
+// and pass it our Express server
 const io = require('socket.io')(server, { cors: true });
-// const chat_history = []
-//on is an event listner for any client connects to sockets, this is the callback function
-io.on("connection", (socket) =>{
-    //send chat history to the new user
-    Chat.find().then(result=>{
-        socket.emit('output_messages', result )
-    })
-    
-    //listener event from you client chatroom, has to match
-    socket.on("message", createMessage => {
-        //from model to save in DB
-        const chat_message = new Chat({createMessage})
-        chat_message.save().then(()=>{
-            //sending message to everyone whose connected
-            io.emit("message", createMessage)
 
-        })
-        //send message out to rest of users
-                socket.broadcast.emit("new_message", createMessage)
+const chat_history = []
+
+io.on('connection', socket =>{
+    // console.log(socket.id)
+
+    // SEND THE CHAT HISTORY TO NEW USER
+    socket.emit("chat_history", chat_history)
+
+
+    socket.on("send_message", data => {
+        // ADDING THE MESSAGE TO CHAT HISTORY
+        chat_history.push(data)
+
+        // SEND THE MESSAGE OUT TO THE REST OF THE USERS
+        // socket.broadcast.emit("new_message", data)
+
+        // SENDING MESSAGE TO EVERYONE WHO'S CONNECTED
+        io.emit("new_message", data)
     })
 })

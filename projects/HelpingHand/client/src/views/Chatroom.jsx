@@ -14,12 +14,11 @@ const Chatroom = (props) => {
     const [chat, setChat] = useState([])
 
     useEffect(() => {
-        //listening for the socket
 
         //taking previous chat and adding the newest message to the chat 
         socket.on('output_messages', data =>{
-            console.log(data)
-            // setChat(data)
+            // console.log(data)
+            setChat(data)
         })
 
     // LISTENING FOR ANY NEW MESSAGE
@@ -47,21 +46,21 @@ const Chatroom = (props) => {
 
   return (
     
-    <div>Chatroom
-        <form onSubmit={submitHandler}>
-            <input type="text" onChange={(e) => setChatState(e.target.value)}   />
-            <button type="submit">Send</button>
-        </form>
+    <div className="container">Chatroom
         {
             chat.map(msgObj => {
                 return(
                     <div>
-                        <p>{msgObj.message}</p>
-                        <p>by {msgObj.name}</p>
+                        <p>{msgObj.createMessage.message}</p>
+                        <p>by {msgObj.createMessage.userName}</p>
                     </div>
                 )
             })
         }
+        <form onSubmit={submitHandler}>
+            <input type="text" onChange={(e) => setChatState(e.target.value)}   />
+            <button type="submit">Send</button>
+        </form>
     </div>
   )
 }

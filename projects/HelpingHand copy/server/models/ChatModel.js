@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 
 const ChatSchema = new mongoose.Schema({
 	createMessage: {
-		type: [String],
-		// required: [true, 'All Fields are required'],
+		//storing as an array of objects
+		type: Object,
+		required: true
 	},
 
 

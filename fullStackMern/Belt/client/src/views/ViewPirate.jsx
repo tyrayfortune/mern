@@ -27,17 +27,15 @@ const ViewPirate = (props) => {
       {
         (pirate) ?
         <div>
-        <h1>{pirate.pirateName}</h1>
-        <h4><img src={pirate.imageURL} alt="" /></h4>
-        <h2>{pirate.pirateCatchPhrase}</h2>
-
-        <h2>About:</h2>
-        <h5>position:{pirate.crewPosition}</h5>
-        <h5>Treasures:{pirate.treasureChests}</h5>
-        <h5>Peg Leg:{pirate.pegLeg}</h5>
-        <h5>Eye Patch:{pirate.eyePatch}</h5>
-        <h5>Hook Hand:{pirate.hookHand}</h5>
-
+          <h1>{pirate.pirateName}</h1>
+          <h4><img src={pirate.imageURL} alt="" /></h4>
+          <h2>{pirate.pirateCatchPhrase}</h2>
+          <h2>About:</h2>
+          <h5>position:{pirate.crewPosition}</h5>
+          <h5>Treasures:{pirate.treasureChests}</h5>
+          <h5>Peg Leg:{pirate.pegLeg}</h5>
+          <h5>Eye Patch:{pirate.eyePatch}</h5>
+          <h5>Hook Hand:{pirate.hookHand}</h5>
       </div> : <h5>loading..</h5>
       }
     </div>
