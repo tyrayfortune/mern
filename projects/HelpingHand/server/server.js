@@ -11,6 +11,10 @@ const server = app.listen(8000, () =>
 // and pass it our Express server
 const io = require('socket.io')(server, { cors: true });
 
+
+
+
+
 const chat_history = []
 
 io.on('connection', socket =>{
