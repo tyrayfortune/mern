@@ -25,7 +25,7 @@
   width: 1284px;
   background-color: rgb(109, 136, 136);
   overflow-y: scroll;
-  color: rgb(0, 0, 0);
+  color: rgb(7, 3, 3);
   border-radius: 10px;
   border: solid crimson;
 border-width:  5 0 5 5px;
@@ -80,4 +80,27 @@ font-weight: 700;
   justify-content: space-between;
   text-decoration: none;
   list-style-type: none;
+
+}
+.quote_borders{
+  border-style: ridge;
+  border-width:  10px;
+  border-color: lightseagreen;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.center_text{
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+}
+
+.row:after{
+  display: flex;
+}
+
+.column{
+  flex: 33%;
 }

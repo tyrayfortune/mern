@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import MotivationalQuote from '../components/MotivationalQuote'
+
+import QuotesAPI from '../services/QuotesAPI'
 const Homepage = () => {
   return (
     <div>
@@ -12,7 +13,8 @@ const Homepage = () => {
             </h6>
 
         <div>
-        <MotivationalQuote/>
+        <QuotesAPI/>
+
 
         </div>
              <h5>resources for homeless</h5>

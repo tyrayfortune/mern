@@ -62,6 +62,7 @@ const SocketComponent = () => {
                 </div>
                 )})
             }
+            
             <div className='chat-line'>
                 <form className='chatt' onSubmit={submitHandler}>
                     <input className='chat-box' placeholder='E n t e r      t e x t      h e r e . . . ' onChange={(e) => setChatInput(e.target.value)} value={chatInput}/>
