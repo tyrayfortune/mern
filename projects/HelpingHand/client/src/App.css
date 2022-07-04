@@ -89,6 +89,15 @@ font-weight: 700;
   border-radius: 15px;
   padding: 20px;
   margin-top: 20px;
+  background-color: rgb(253, 235, 133)
+}
+
+.quote_button{
+  border-style: ridge;
+  border-width:  5px;
+  border-color: lightseagreen;
+  border-radius: 15px;
+  background-color: rgb(253, 235, 133)
 }
 
 .center_text{

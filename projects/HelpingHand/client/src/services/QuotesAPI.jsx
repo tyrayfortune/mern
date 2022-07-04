@@ -36,7 +36,7 @@ const QuotesAPI = (props) => {
             <h5>{quote}</h5>
         </div>
         <div>
-            <button onClick={newQuote} >Get Motivated</button>
+            <button className='quote_button' onClick={newQuote} >Get Motivated</button>
         </div>
     </div>
   )
